@@ -5,7 +5,10 @@ import { useState } from "react";
 
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaEnvelope, FaXTwitter } from "react-icons/fa6";
+import { FaEnvelope, FaGithub, FaXTwitter } from "react-icons/fa6";
+import AvailableSector from "@/components/AvailableSection";
+import Works from "@/components/Works";
+import Contact from "@/components/Contact";
 
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
@@ -13,6 +16,7 @@ const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
+  const [openContact, setOpenContact] = useState(false);
 
   return (
     <>
@@ -21,67 +25,98 @@ export default function Home() {
         innerSize={8}
         outerSize={35}
         innerScale={2}
-        outerScale={3}
+        outerScale={5}
         outerAlpha={1}
         outerStyle={{
           backgroundColor: "#fff",
           mixBlendMode: "exclusion",
         }}
-        clickables={["h1", "a"]}
+        clickables={["h1", "a", "button"]}
       />
-      <Main>
-        <div />
-        <div style={{ textAlign: "center" }}>
-          <h1
-            style={{
-              color: clicked ? "black" : "white",
-              transition: "all 0.3s ease-in-out",
-            }}
-            onClick={() => setClicked((current) => !current)}
-          >
-            giancarlo brusca.
-          </h1>
-          <h2
-            style={{
-              color: clicked ? "darkgray" : "#131313",
-              transition: "all 0.3s ease-in-out",
-            }}
-          >
-            frontend developer
-          </h2>
-        </div>
+      <Header
+        animate={{
+          opacity: 1,
+        }}
+        initial={{
+          opacity: 0,
+          padding: 50,
+        }}
+        style={{ color: clicked ? "black" : "white" }}
+      >
+        <div>v0.1.0 - 2024</div>
+        <div>ARG</div>
+        <AvailableSector />
+      </Header>
+      <main>
+        <Name
+          animate={{
+            opacity: 1,
+          }}
+          initial={{
+            opacity: 0,
+          }}
+          clicked={clicked}
+          onClick={() => setClicked((current) => !current)}
+        >
+          giancarlo brusca.
+        </Name>
+        <Presentation
+          animate={{
+            opacity: 1,
+          }}
+          initial={{
+            opacity: 0,
+          }}
+          clicked={clicked}
+        >
+          (trying to) create websites for a living.
+        </Presentation>
         <Socials
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           style={{
             color: clicked ? "black" : "white",
-            transition: "all 0.3s ease-in-out",
           }}
         >
+          <li>
+            <a href="https://github.com/giancarlobrusca">
+              <FaGithub />
+            </a>
+          </li>
           <li>
             <a href="https://twitter.com/giancarlobrusca">
               <FaXTwitter />
             </a>
           </li>
           <li>
-            <a href="mailto:giancarlobrusca@gmail.com">
+            <a onClick={() => setOpenContact((current) => !current)}>
               <FaEnvelope />
             </a>
           </li>
         </Socials>
-      </Main>
+        <Works clicked={clicked} />
+        <Contact open={openContact} setOpenContact={setOpenContact} />
+      </main>
       <AnimatePresence>
         {clicked && (
           <motion.div
             initial={{
               backgroundColor: "white",
               position: "absolute",
-              top: "50%",
+              top: "40%",
               left: "50%",
               transform: "translate(-50%, -50%)",
               borderRadius: 60,
               opacity: 0,
               zIndex: 0,
             }}
-            animate={{ opacity: 1, width: "100vw", height: "100vh" }}
+            animate={{
+              top: "50%",
+              opacity: 1,
+              width: "100vw",
+              height: "100vh",
+              borderRadius: 0,
+            }}
             exit={{ opacity: 0 }}
           />
         )}
@@ -92,14 +127,20 @@ export default function Home() {
             initial={{
               backgroundColor: "black",
               position: "absolute",
-              top: "50%",
+              top: "40%",
               left: "50%",
               transform: "translate(-50%, -50%)",
               borderRadius: 60,
               opacity: 0,
               zIndex: 0,
             }}
-            animate={{ opacity: 1, width: "100vw", height: "100vh" }}
+            animate={{
+              top: "50%",
+              opacity: 1,
+              width: "100vw",
+              height: "100vh",
+              borderRadius: 0,
+            }}
             exit={{ opacity: 0 }}
           />
         )}
@@ -108,21 +149,49 @@ export default function Home() {
   );
 }
 
-const Main = styled.main`
-  position: relative;
-  height: 100vh;
+const Header = styled(motion.header)`
+  font-family: "Cutive Mono", monospace;
+  width: 100vw;
+  position: fixed;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 50px;
+  z-index: 2;
+  transition: 0.5s ease-in;
+`;
+
+const Name = styled(motion.h1)`
+  max-width: 100px;
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 8em;
+  color: ${({ clicked }) => (clicked ? "black" : "white")};
+  transition: all 0.5s ease-in-out;
   z-index: 1;
 `;
 
-const Socials = styled.ul`
+const Presentation = styled(motion.p)`
+  max-width: 120px;
+  font-size: 1.5em;
+  text-align: right;
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: ${({ clicked }) => (clicked ? "black" : "white")};
+  z-index: 1;
+`;
+
+const Socials = styled(motion.ul)`
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
   list-style: none;
   display: flex;
   gap: 50px;
-  font-size: 1em;
-  margin-bottom: 50px;
+  font-size: 2em;
+  transition: all 0.5s ease-in-out;
+  z-index: 1;
 `;
