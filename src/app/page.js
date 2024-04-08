@@ -51,9 +51,9 @@ export default function Home() {
       >
         <div>
           <img src="logo.png" alt="My Logo" />
-          v0.1.0 - 2024
+          v0.1.0 - © 2024
         </div>
-        <div>ARG</div>
+        {!matches && <div>ARG</div>}
         <AvailableSector />
       </Header>
       <main>
@@ -102,11 +102,6 @@ export default function Home() {
               <PiReadCvLogoFill />
             </a>
           </li>
-          {/* <li>
-            <a onClick={() => setOpenContact((current) => !current)}>
-              <FaEnvelope />
-            </a>
-          </li> */}
         </Socials>
         <Works clicked={clicked} />
         <Contact open={openContact} setOpenContact={setOpenContact} />
