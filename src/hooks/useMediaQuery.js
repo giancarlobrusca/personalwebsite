@@ -6,7 +6,8 @@ const IS_SERVER = typeof window === "undefined";
 
 export function useMediaQuery(
   query,
-  { defaultValue = false, initializeWithValue = true }
+  defaultValue = true,
+  initializeWithValue = true
 ) {
   const getMatches = (query) => {
     if (IS_SERVER) {
