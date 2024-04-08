@@ -5,11 +5,11 @@ import { useState } from "react";
 
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
-import { FaEnvelope, FaGithub, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaXTwitter } from "react-icons/fa6";
 import { PiReadCvLogoFill } from "react-icons/pi";
-import AvailableSector from "../../components/AvailableSection";
-import Works from "../../components/Works";
-import Contact from "../../components/Contact";
+import AvailableSector from "../components/AvailableSection";
+import Works from "../components/Works";
+import Contact from "../components/Contact";
 
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
