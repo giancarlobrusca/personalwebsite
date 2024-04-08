@@ -13,7 +13,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <meta property="og:title" content="giancarlo brusca" />
       <meta property="og:description" content="diseñador web argentino" />
-      <meta property="og:image" content="logo.png" />
+      <meta
+        property="og:image"
+        content="https://personalwebsite-azure.vercel.app/logo.png"
+      />
       <body>{children}</body>
     </html>
   );
