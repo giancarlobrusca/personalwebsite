@@ -80,7 +80,7 @@ const WorksPanel = styled(motion.section)`
 
 const WorksList = styled.ul`
   list-style: none;
-  font-size: 2em;
+  font-size: 3em;
 
   li {
     margin-top: 50px;

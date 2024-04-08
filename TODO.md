@@ -1,3 +1,1 @@
-- Formulario mail.
-- Agregar algún personaje, animación, avatar, algo simpático.
-- Sonidos.
+- Sonidos

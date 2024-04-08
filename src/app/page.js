@@ -6,9 +6,10 @@ import { useState } from "react";
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaEnvelope, FaGithub, FaXTwitter } from "react-icons/fa6";
-import AvailableSector from "@/components/AvailableSection";
-import Works from "@/components/Works";
-import Contact from "@/components/Contact";
+import { PiReadCvLogoFill } from "react-icons/pi";
+import AvailableSector from "../../components/AvailableSection";
+import Works from "../../components/Works";
+import Contact from "../../components/Contact";
 
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
@@ -43,7 +44,10 @@ export default function Home() {
         }}
         style={{ color: clicked ? "black" : "white" }}
       >
-        <div>v0.1.0 - 2024</div>
+        <div>
+          <img src="logo.png" alt="My Logo" />
+          v0.1.0 - 2024
+        </div>
         <div>ARG</div>
         <AvailableSector />
       </Header>
@@ -69,7 +73,7 @@ export default function Home() {
           }}
           clicked={clicked}
         >
-          (trying to) create websites for a living.
+          creando webs para <del>pagar el alquiler</del> divertirme y ser feliz.
         </Presentation>
         <Socials
           initial={{ opacity: 0 }}
@@ -89,10 +93,15 @@ export default function Home() {
             </a>
           </li>
           <li>
+            <a href="https://read.cv/giancarlobrusca">
+              <PiReadCvLogoFill />
+            </a>
+          </li>
+          {/* <li>
             <a onClick={() => setOpenContact((current) => !current)}>
               <FaEnvelope />
             </a>
-          </li>
+          </li> */}
         </Socials>
         <Works clicked={clicked} />
         <Contact open={openContact} setOpenContact={setOpenContact} />
@@ -158,6 +167,17 @@ const Header = styled(motion.header)`
   align-items: center;
   z-index: 2;
   transition: 0.5s ease-in;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  img {
+    width: 50px;
+    border-radius: 60px;
+  }
 `;
 
 const Name = styled(motion.h1)`

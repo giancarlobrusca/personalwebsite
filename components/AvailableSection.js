@@ -5,7 +5,7 @@ export default function AvailableSection() {
   return (
     <Wrapper>
       <GreenDot />
-      <div>available</div>
+      <div>disponible</div>
     </Wrapper>
   );
 }

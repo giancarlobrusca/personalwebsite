@@ -25,11 +25,11 @@ export default function Contact({ open, setOpenContact }) {
             />
           </button>
           <ContactForm>
-            <span>contact</span>
-            <input required type="text" placeholder="name" />
-            <input required type="text" placeholder="mail" />
-            <input required type="text" placeholder="message" />
-            <button>send</button>
+            <span>contacto</span>
+            <input required type="text" placeholder="nombre" />
+            <input required type="text" placeholder="email" />
+            <input required type="text" placeholder="mensaje" />
+            <button>enviar</button>
           </ContactForm>
         </ContactPanel>
       )}
