@@ -10,30 +10,35 @@ import { PiReadCvLogoFill } from "react-icons/pi";
 import AvailableSector from "../components/AvailableSection";
 import Works from "../components/Works";
 import Contact from "../components/Contact";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
 });
 
 export default function Home() {
+  const matches = useMediaQuery("(max-width: 750px)");
+
   const [clicked, setClicked] = useState(false);
   const [openContact, setOpenContact] = useState(false);
 
   return (
     <>
-      <AnimatedCursor
-        color="0,0,0"
-        innerSize={8}
-        outerSize={35}
-        innerScale={2}
-        outerScale={5}
-        outerAlpha={1}
-        outerStyle={{
-          backgroundColor: "#fff",
-          mixBlendMode: "exclusion",
-        }}
-        clickables={["h1", "a", "button"]}
-      />
+      {!matches && (
+        <AnimatedCursor
+          color="0,0,0"
+          innerSize={8}
+          outerSize={35}
+          innerScale={2}
+          outerScale={5}
+          outerAlpha={1}
+          outerStyle={{
+            backgroundColor: "#fff",
+            mixBlendMode: "exclusion",
+          }}
+          clickables={["h1", "a", "button"]}
+        />
+      )}
       <Header
         animate={{
           opacity: 1,
