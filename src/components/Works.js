@@ -76,6 +76,10 @@ const WorksPanel = styled(motion.section)`
     border: none;
     background: transparent;
   }
+
+  @media (max-width: 750px) {
+    width: 100%;
+  }
 `;
 
 const WorksList = styled.ul`
@@ -84,6 +88,10 @@ const WorksList = styled.ul`
 
   li {
     margin-top: 50px;
+  }
+
+  @media (max-width: 750px) {
+    font-size: 2em;
   }
 `;
 

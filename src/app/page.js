@@ -178,6 +178,15 @@ const Header = styled(motion.header)`
     width: 50px;
     border-radius: 60px;
   }
+
+  @media (max-width: 750px) {
+    img {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 `;
 
 const Name = styled(motion.h1)`
@@ -190,6 +199,11 @@ const Name = styled(motion.h1)`
   color: ${({ clicked }) => (clicked ? "black" : "white")};
   transition: all 0.5s ease-in-out;
   z-index: 1;
+
+  @media (max-width: 750px) {
+    font-size: 4em;
+    top: 40%;
+  }
 `;
 
 const Presentation = styled(motion.p)`
@@ -202,6 +216,11 @@ const Presentation = styled(motion.p)`
   transform: translateY(-50%);
   color: ${({ clicked }) => (clicked ? "black" : "white")};
   z-index: 1;
+
+  @media (max-width: 750px) {
+    max-width: 80%;
+    top: 60%;
+  }
 `;
 
 const Socials = styled(motion.ul)`
