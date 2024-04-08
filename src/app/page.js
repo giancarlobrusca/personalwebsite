@@ -10,7 +10,7 @@ import { PiReadCvLogoFill } from "react-icons/pi";
 import AvailableSector from "../components/AvailableSection";
 import Works from "../components/Works";
 import Contact from "../components/Contact";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
