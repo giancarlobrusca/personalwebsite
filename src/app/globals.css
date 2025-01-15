@@ -15,7 +15,7 @@ body {
   background-color: white;
   color: rgb(136, 136, 136);
   font-family: "Lexend", "Inter", "Inter Placeholder", sans-serif;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
 }
 
 h1 {

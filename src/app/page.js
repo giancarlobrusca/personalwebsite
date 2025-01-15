@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 
 import { useMediaQuery } from "../hooks/useMediaQuery";
+import Image from "next/image";
 
-const SubstackEmbed = () => {
+const SubstackEmbed = ({ width, height }) => {
   return (
     <iframe
       src="https://giancarlobrusca.substack.com/embed"
-      width="480"
-      height="150"
+      width={width}
+      height={height}
       style={{ border: "1px solid #EEE", background: "white" }}
       frameBorder="0"
       scrolling="no"
@@ -35,15 +36,13 @@ export default function Home() {
           maxWidth: isMobile ? "100%" : "35%",
         }}
       >
-        <img
-          src="avatargoku.jpg"
-          style={{
-            width: 100,
-            height: 100,
-            borderRadius: 60,
-            marginBottom: 20,
-          }}
-        ></img>
+        <Image
+          src="/avatargoku.jpg"
+          width={100}
+          height={100}
+          style={{ borderRadius: 60, marginBottom: 20 }}
+          alt="avatar"
+        />
         <h1>hola soy giancarlo.</h1>
         <p>
           me gusta hacer <i>cosas</i>.
@@ -145,7 +144,7 @@ export default function Home() {
           reinventarse a sí mismo.
         </p>
         <p>
-          - estoy comenzando junto a dos personas una marca de ropa llamada{" "}
+          - estoy comenzando junto a dos amigos una marca de ropa llamada{" "}
           <a
             href="https://www.instagram.com/persu.arg/"
             target="_blank"
@@ -173,8 +172,8 @@ export default function Home() {
           </a>
         </p>
         <p>
-          - a veces escribo, y algunas de esas veces (1%), es algo interesante:
-          recientemente publiqué{" "}
+          - a veces escribo, y algunas de esas veces (1%), sale algo bueno: hace
+          poco publiqué{" "}
           <a
             href="https://www.cuatroveintiuno.com/remilia-milady-charlotte-fang-nueva-internet/"
             target="_blank"
@@ -186,8 +185,7 @@ export default function Home() {
           liderado por tres cracks.
         </p>
         <p>
-          y una incontable cantidad de ideas que murieron en el camino o no
-          vieron la luz.
+          y una incontable cantidad de ideas que murieron o no vieron la luz.
         </p>
         <p>aprendí mucho en el camino, y pienso seguir.</p>
         <p>
@@ -195,7 +193,10 @@ export default function Home() {
           interesan o que estoy aprendiendo, así que si querés recibir esos
           textos más personales dejá tu mail acá abajo:
         </p>
-        <SubstackEmbed />
+        <SubstackEmbed
+          width={isMobile ? 360 : 480}
+          height={isMobile ? 160 : 160}
+        />
         <p>
           para contactarme mi X es{" "}
           <a
