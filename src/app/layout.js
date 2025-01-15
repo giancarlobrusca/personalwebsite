@@ -4,7 +4,7 @@ export const metadata = {
   title: "giancarlo brusca",
   description: "diseñador web argentino.",
   icons: {
-    icon: "logo.png",
+    icon: "favicongoku.png",
   },
 };
 
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <meta property="og:description" content="diseñador web argentino" />
       <meta
         property="og:image"
-        content="https://personalwebsite-azure.vercel.app/logo.png"
+        content="https://personalwebsite-azure.vercel.app/favicongoku.png"
       />
       <body>{children}</body>
     </html>
