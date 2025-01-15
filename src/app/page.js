@@ -56,9 +56,9 @@ export default function Home() {
           desarrolladores después de ese cuatrimestre.
         </p>
         <p>
-          mi "carrera freelance" (si se puede llamar así) está llena de
-          proyectos únicos. quizás el más destacado (e individual) haya sido la
-          creación del{" "}
+          mi &quot;carrera freelance&quot; (si se puede llamar así) está llena
+          de proyectos únicos. quizás el más destacado (e individual) haya sido
+          la creación del{" "}
           <a
             href="https://www.bigbangnews.com/politica/archivo-massa-secretos-cuenta-creada-imagenes-ia-n86627"
             target="_blank"
@@ -160,8 +160,8 @@ export default function Home() {
           </a>
         </p>
         <p>
-          - también estoy comenzando mi "carrera" como escritor (o periodista?):
-          recientemente publiqué{" "}
+          - también estoy comenzando mi &quot;carrera&quot; como escritor (o
+          periodista?): recientemente publiqué{" "}
           <a
             href="https://www.cuatroveintiuno.com/remilia-milady-charlotte-fang-nueva-internet/"
             target="_blank"
