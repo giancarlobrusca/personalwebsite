@@ -4,6 +4,19 @@ import { useEffect, useState } from "react";
 
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
+const SubstackEmbed = () => {
+  return (
+    <iframe
+      src="https://giancarlobrusca.substack.com/embed"
+      width="480"
+      height="150"
+      style={{ border: "1px solid #EEE", background: "white" }}
+      frameBorder="0"
+      scrolling="no"
+    />
+  );
+};
+
 export default function Home() {
   const matches = useMediaQuery("(max-width: 750px)");
   const [isMobile, setIsMobile] = useState(false);
@@ -160,8 +173,8 @@ export default function Home() {
           </a>
         </p>
         <p>
-          - también estoy comenzando mi &quot;carrera&quot; como escritor (o
-          periodista?): recientemente publiqué{" "}
+          - a veces escribo, y algunas de esas veces (1%), es algo interesante:
+          recientemente publiqué{" "}
           <a
             href="https://www.cuatroveintiuno.com/remilia-milady-charlotte-fang-nueva-internet/"
             target="_blank"
@@ -174,7 +187,32 @@ export default function Home() {
         </p>
         <p>
           y una incontable cantidad de ideas que murieron en el camino o no
-          vieron la luz
+          vieron la luz.
+        </p>
+        <p>aprendí mucho en el camino, y pienso seguir.</p>
+        <p>
+          muy de vez en cuando escribo sobre cosas que se me ocurren o me
+          interesan o que estoy aprendiendo, así que si querés recibir esos
+          textos más personales dejá tu mail acá abajo:
+        </p>
+        <SubstackEmbed />
+        <p>
+          para contactarme mi X es{" "}
+          <a
+            href="https://x.com/gianc4_"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @gianc4_
+          </a>{" "}
+          y mi mail es{" "}
+          <a
+            href="mailto:giancarlobrusca@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            giancarlobrusca@gmail.com
+          </a>
         </p>
       </main>
     </>
