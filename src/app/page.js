@@ -1,11 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
 export default function Home() {
-  const isMobile = useMediaQuery("(max-width: 750px)");
+  const matches = useMediaQuery("(max-width: 750px)");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(matches);
+  }, [matches]);
 
   return (
     <>
@@ -28,56 +33,143 @@ export default function Home() {
         ></img>
         <h1>hola soy giancarlo.</h1>
         <p>
-          soy un ser humano <i>curioso</i>.
+          me gusta hacer <i>cosas</i>.
         </p>
         <p>
           mi carrera profesional siempre estuvo ligada al software. comencé como
-          diseñador ux y luego aprendí a programar frontend. desde entonces, mi
-          camino ha ido evolucionado constantemente, llevándome a trabajar en
+          diseñador ux y después aprendí a programar frontend. desde entonces,
+          mi camino fue evolucionado constantemente, llegando a trabajar en
           diversas empresas y proyectos: ecommerce, mapas, estudios creativos,
           servicios de streaming y playback, e incluso agentes de inteligencia
           artificial.
         </p>
         <p>
-          también enseñé programación en la escuela da vinci a una clase de
-          30-35 alumnos. algunos consiguieron trabajo como desarrolladores
-          después de ese cuatrimestre.
+          también enseñé programación en la{" "}
+          <a
+            href="https://davinci.edu.ar/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            escuela da vinci
+          </a>{" "}
+          a una clase de 30-35 alumnos. algunos consiguieron trabajo como
+          desarrolladores después de ese cuatrimestre.
         </p>
         <p>
           mi "carrera freelance" (si se puede llamar así) está llena de
           proyectos únicos. quizás el más destacado (e individual) haya sido la
-          creación del archivo general sergio massa (agsm), una cuenta de
-          twitter que alcanzó 10,000 seguidores en solo una semana y hasta llegó
-          al mismísimo new york times. agsm fue pionera en su rubro, siendo la
-          primera en usar inteligencia artificial en una elección presidencial.
+          creación del{" "}
+          <a
+            href="https://www.bigbangnews.com/politica/archivo-massa-secretos-cuenta-creada-imagenes-ia-n86627"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            archivo general sergio massa (agsm)
+          </a>
+          , una cuenta de twitter que alcanzó 10,000 seguidores en solo una
+          semana y hasta llegó al mismísimo{" "}
+          <a
+            href="https://www.nytimes.com/2023/11/15/world/americas/argentina-election-ai-milei-massa.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            new york times
+          </a>
+          . agsm fue pionera en su rubro, siendo la primera en usar inteligencia
+          artificial en una elección presidencial.
         </p>
         <p style={{ fontSize: "0.9rem" }}>
-          (en este carrusel de instagram hay una foto mía que no llegó a la
-          nota)
+          <a
+            href="https://www.instagram.com/p/Czu205buMXm/?img_index=3&igsh=MW54MWJuaHQzbm01NA=="
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            (en este carrusel de instagram hay una foto mía que no llegó a la
+            nota)
+          </a>
         </p>
         <p>
-          también fui community manager y web developer de magaiba, una memecoin
-          argentina basada en un lagarto rosa, creada por la comunidad de
-          círculo vicioso.
+          fui community manager y web developer de{" "}
+          <a
+            href="https://www.magaiba.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            magaiba
+          </a>
+          , una memecoin argentina basada en un lagarto rosa, creada por la
+          comunidad de{" "}
+          <a
+            href="https://x.com/circulovicioso8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            círculo vicioso
+          </a>
+          . hay
+          <a
+            href="https://www.cuatroveintiuno.com/magaiba-memecoin-argentina/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {" "}
+            un hermoso texto
+          </a>{" "}
+          escrito por el amigo juan ruocco sobre el proyecto.
         </p>
         <p>actualmente formo parte de varias cosas:</p>
         <p>
-          - trabajo como productor segundo (y a veces conductor) de ceibo
-          argentina, un canal de streaming sobre política, filosofía y cultura:
-          un canal joven creado por un equipo increíble que no para de crecer y
+          - trabajo como productor segundo (y a veces conductor) de{" "}
+          <a
+            href="https://www.youtube.com/@ceiboargentina"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ceibo argentina
+          </a>
+          , un canal de streaming sobre política, filosofía y cultura: un
+          proyecto joven creado por un equipo increíble que no para de crecer y
           reinventarse a sí mismo.
         </p>
         <p>
-          - llevo adelante junto a dos personas una marca de ropa llamada persu.
+          - estoy comenzando junto a dos personas una marca de ropa llamada{" "}
+          <a
+            href="https://www.instagram.com/persu.arg/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Фersu.
+          </a>
         </p>
         <p>
-          - me encargo del frontend del juego de unidad básica satoshi nakamoto:
-          una movida espectacular creada por muphasa
+          - me encargo del frontend de{" "}
+          <a
+            href="https://x.com/UnidadNakamoto"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            unidad básica satoshi nakamoto
+          </a>
+          : una movida espectacular creada por{" "}
+          <a
+            href="https://x.com/muphasamc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            muphasa
+          </a>
         </p>
         <p>
           - también estoy comenzando mi "carrera" como escritor (o periodista?):
-          recientemente publiqué un artículo en cuatroveintiuno (421),
-          posiblemente el medio más interesante de argentina en este momento,
+          recientemente publiqué{" "}
+          <a
+            href="https://www.cuatroveintiuno.com/remilia-milady-charlotte-fang-nueva-internet/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            un artículo en cuatroveintiuno (421)
+          </a>
+          , posiblemente el medio más interesante de argentina en este momento,
           liderado por tres cracks.
         </p>
         <p>
