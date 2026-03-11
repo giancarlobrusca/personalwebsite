@@ -22,7 +22,7 @@ export default function WritingList() {
             textTransform: "uppercase",
           }}
         >
-          // Escritura
+          {"// Escritura"}
         </span>
         <h2
           style={{

@@ -30,18 +30,10 @@ export default function Nav() {
         GB
       </a>
       <div className="nav-links" style={{ display: "flex", gap: "32px" }}>
-        <a href="#apps" style={{ navLink }}>
-          apps
-        </a>
-        <a href="#writing" style={{ navLink }}>
-          escritura
-        </a>
-        <a href="#newsletter" style={{ navLink }}>
-          newsletter
-        </a>
-        <a href="#contact" style={{ navLink }}>
-          contacto
-        </a>
+        <a href="#apps">apps</a>
+        <a href="#writing">escritura</a>
+        <a href="#newsletter">newsletter</a>
+        <a href="#contact">contacto</a>
       </div>
       <style jsx>{`
         .nav-links a {
@@ -63,5 +55,3 @@ export default function Nav() {
     </nav>
   );
 }
-
-const navLink = {};

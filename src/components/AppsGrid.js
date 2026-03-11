@@ -197,7 +197,7 @@ export default function AppsGrid() {
             textTransform: "uppercase",
           }}
         >
-          // Proyectos
+          {"// Proyectos"}
         </span>
         <h2
           style={{

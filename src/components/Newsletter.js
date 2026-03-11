@@ -41,7 +41,7 @@ export default function Newsletter() {
               textTransform: "uppercase",
             }}
           >
-            // Newsletter
+            {"// Newsletter"}
           </span>
           <h2
             style={{

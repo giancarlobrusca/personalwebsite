@@ -28,7 +28,7 @@ export default function Contact() {
               textTransform: "uppercase",
             }}
           >
-            // Contacto
+            {"// Contacto"}
           </span>
           <h2
             style={{
