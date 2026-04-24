@@ -74,12 +74,12 @@ function Larga() {
 
       <p className="bio-p">
         empecé siendo diseñador (de hecho mi único título oficial es de
-        "diseñador multimedia" de la{" "}
+        &quot;diseñador multimedia&quot; de la{" "}
         <a href={DAVINCI} target="_blank" rel="noopener noreferrer">
           escuela da vinci
         </a>
         ) hasta que mi hermano me regaló un curso de javascript, así pasé a
-        frontend — donde pude empezar a "hacer realidad" los diseños que
+        frontend — donde pude empezar a &quot;hacer realidad&quot; los diseños que
         hacía.
       </p>
 
@@ -188,7 +188,7 @@ function Larga() {
         <a href={ANDREUSCAFE} target="_blank" rel="noopener noreferrer">
           @andreuscafe
         </a>
-        : un pequeño estudio de creative development llamado "event horizon".
+        : un pequeño estudio de creative development llamado &quot;event horizon&quot;.
         grandes recuerdos e inolvidables horas de brainstorming en unas
         pequeñas oficinas de microcentro.
       </p>
