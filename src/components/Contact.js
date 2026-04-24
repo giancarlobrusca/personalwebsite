@@ -1,7 +1,7 @@
 "use client";
 
 const links = [
-  { label: "Twitter", url: "https://x.com/gianc4_" },
+  { label: "Twitter", url: "https://x.com/giancarlobrusca" },
   { label: "Email", url: "mailto:giancarlobrusca@gmail.com" },
   { label: "Instagram", url: "https://instagram.com/giancarlobrusca" },
 ];

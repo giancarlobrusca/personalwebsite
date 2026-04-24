@@ -13,7 +13,7 @@ export default function Footer() {
       }}
     >
       <span>© {new Date().getFullYear()} Giancarlo Brusca</span>
-      <span>Hecho a mano · con ideas propias</span>
+      <span>hecho a mano</span>
     </footer>
   );
 }

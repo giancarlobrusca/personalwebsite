@@ -29,12 +29,7 @@ export default function Nav() {
       >
         GB
       </a>
-      <div className="nav-links" style={{ display: "flex", gap: "32px" }}>
-        <a href="#apps">apps</a>
-        <a href="#writing">escritura</a>
-        <a href="#newsletter">newsletter</a>
-        <a href="#contact">contacto</a>
-      </div>
+      <div className="nav-links" style={{ display: "flex", gap: "32px" }}></div>
       <style jsx>{`
         .nav-links a {
           font-family: var(--font-mono);
