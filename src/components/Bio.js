@@ -3,7 +3,28 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const VERSIONS = ["corta", "larga"];
+function playToggleSound(on) {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.type = "square";
+    const now = ctx.currentTime;
+    if (on) {
+      osc.frequency.setValueAtTime(300, now);
+      osc.frequency.exponentialRampToValueAtTime(600, now + 0.06);
+    } else {
+      osc.frequency.setValueAtTime(600, now);
+      osc.frequency.exponentialRampToValueAtTime(200, now + 0.06);
+    }
+    gain.gain.setValueAtTime(0.15, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+    osc.start(now);
+    osc.stop(now + 0.1);
+  } catch (_) {}
+}
 
 const MASSA_BIGBANG =
   "https://www.bigbangnews.com/politica/archivo-massa-secretos-cuenta-creada-imagenes-ia-n86627";
@@ -251,8 +272,15 @@ const COMPONENTS = {
 };
 
 export default function Bio() {
-  const [version, setVersion] = useState("corta");
+  const [tldr, setTldr] = useState(false);
+  const version = tldr ? "corta" : "larga";
   const Content = COMPONENTS[version];
+
+  function handleToggle() {
+    const next = !tldr;
+    setTldr(next);
+    playToggleSound(next);
+  }
 
   return (
     <section
@@ -269,28 +297,27 @@ export default function Bio() {
     >
       <div
         className="bio-switcher"
-        role="tablist"
         style={{
           display: "flex",
-          gap: "8px",
+          alignItems: "center",
+          gap: "12px",
           marginBottom: "32px",
           fontFamily: "var(--font-mono)",
+          fontSize: "0.8rem",
+          letterSpacing: "0.05em",
         }}
       >
-        {VERSIONS.map((v) => {
-          const active = v === version;
-          return (
-            <button
-              key={v}
-              role="tab"
-              aria-selected={active}
-              onClick={() => setVersion(v)}
-              className={`bio-tab ${active ? "active" : ""}`}
-            >
-              {v}
-            </button>
-          );
-        })}
+        <button
+          role="switch"
+          aria-checked={tldr}
+          onClick={handleToggle}
+          className="tldr-switch"
+        >
+          <span className="tldr-thumb" />
+        </button>
+        <span style={{ color: tldr ? "var(--accent)" : "var(--muted)", transition: "color 0.2s ease" }}>
+          TLDR
+        </span>
       </div>
 
       <motion.div layout transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
@@ -308,27 +335,34 @@ export default function Bio() {
       </motion.div>
 
       <style jsx>{`
-        .bio-tab {
-          background: transparent;
-          border: 1px solid var(--border);
-          color: var(--muted);
-          padding: 8px 16px;
-          font-family: var(--font-mono);
-          font-size: 0.8rem;
-          letter-spacing: 0.05em;
-          text-transform: lowercase;
+        .tldr-switch {
+          position: relative;
+          width: 44px;
+          height: 24px;
+          background: var(--border);
+          border: none;
+          border-radius: 12px;
           cursor: none;
-          transition: color 0.2s ease, border-color 0.2s ease,
-            background-color 0.2s ease;
+          transition: background 0.2s ease;
+          flex-shrink: 0;
+          padding: 0;
         }
-        .bio-tab:hover {
-          color: var(--text);
-          border-color: var(--muted);
+        .tldr-switch[aria-checked="true"] {
+          background: var(--accent);
         }
-        .bio-tab.active {
-          color: var(--bg);
-          background-color: var(--accent);
-          border-color: var(--accent);
+        .tldr-thumb {
+          position: absolute;
+          top: 3px;
+          left: 3px;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background: var(--bg);
+          transition: transform 0.2s ease;
+          display: block;
+        }
+        .tldr-switch[aria-checked="true"] .tldr-thumb {
+          transform: translateX(20px);
         }
         .bio :global(.bio-p) {
           margin-bottom: 1.4em;
@@ -341,12 +375,6 @@ export default function Bio() {
         .bio :global(a:hover) {
           border-bottom-color: var(--accent);
           color: var(--accent2);
-        }
-        @media (max-width: 600px) {
-          .bio-tab {
-            flex: 1;
-            padding: 8px 8px;
-          }
         }
       `}</style>
     </section>
