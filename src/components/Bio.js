@@ -51,30 +51,17 @@ const WBD = "https://www.wbd.com/";
 const HBO = "https://www.hbomax.com/ar/es";
 const SOUTHWORKS = "https://www.southworks.com/";
 const JUAN = "https://x.com/realjuanruocco";
+const SLA = "https://slatv.live";
 
 function Corta() {
   return (
     <>
-      <p className="bio-p">me gusta crear cosas.</p>
-
       <p className="bio-p">
-        actualmente soy tech lead en la empresa{" "}
-        <a href={URBETRACK} target="_blank" rel="noopener noreferrer">
-          urbetrack
-        </a>
-        , liderando tres equipos: frontend, mobile y powerbi.
-      </p>
-
-      <p className="bio-p">
-        en paralelo hago cosas con amigos en{" "}
-        <a href={CEIBO} target="_blank" rel="noopener noreferrer">
-          ceibo
+        soy host de{" "}
+        <a href={SLA} target="_blank" rel="noopener noreferrer">
+          SLA
         </a>{" "}
-        y{" "}
-        <a href={NEWS_421} target="_blank" rel="noopener noreferrer">
-          421.news
-        </a>
-        .
+        (siguiendo los acontecimientos), el primer new media argentino.
       </p>
 
       <p className="bio-p">
@@ -239,6 +226,16 @@ function Larga() {
         </a>
         , proyecto que quiero mucho y al que seguiré
         asistiendo siempre que se lleve a cabo.
+      </p>
+
+      <p className="bio-p">
+        y lo más nuevo — soy host de{" "}
+        <a href={SLA} target="_blank" rel="noopener noreferrer">
+          SLA
+        </a>{" "}
+        (siguiendo los acontecimientos), un programa en vivo sobre tecnología
+        que arrancamos con tres tipazos y busca crecer hasta ser el primer new
+        media argentino.
       </p>
 
       <p className="bio-p">
