@@ -271,7 +271,7 @@ const COMPONENTS = {
 };
 
 export default function Bio() {
-  const [tldr, setTldr] = useState(false);
+  const [tldr, setTldr] = useState(true);
   const version = tldr ? "corta" : "larga";
   const Content = COMPONENTS[version];
 
