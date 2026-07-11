@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 function playToggleSound(on) {
   try {
@@ -265,15 +265,8 @@ function Larga() {
   );
 }
 
-const COMPONENTS = {
-  corta: Corta,
-  larga: Larga,
-};
-
 export default function Bio() {
   const [tldr, setTldr] = useState(true);
-  const version = tldr ? "corta" : "larga";
-  const Content = COMPONENTS[version];
 
   function handleToggle() {
     const next = !tldr;
@@ -319,18 +312,27 @@ export default function Bio() {
         </span>
       </div>
 
+      {/* Ambas versiones quedan siempre en el DOM (crawlers / motores de IA
+          ven la bio completa); el toggle sólo colapsa la que no se muestra. */}
       <motion.div layout transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={version}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.28, ease: "easeOut" }}
-          >
-            <Content />
-          </motion.div>
-        </AnimatePresence>
+        <motion.div
+          aria-hidden={!tldr}
+          initial={false}
+          animate={{ opacity: tldr ? 1 : 0, height: tldr ? "auto" : 0 }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          style={{ overflow: "hidden" }}
+        >
+          <Corta />
+        </motion.div>
+        <motion.div
+          aria-hidden={tldr}
+          initial={false}
+          animate={{ opacity: tldr ? 0 : 1, height: tldr ? 0 : "auto" }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          style={{ overflow: "hidden" }}
+        >
+          <Larga />
+        </motion.div>
       </motion.div>
 
       <style jsx>{`
