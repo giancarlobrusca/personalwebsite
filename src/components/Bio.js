@@ -56,6 +56,8 @@ const SLA = "https://slatv.live";
 function Corta() {
   return (
     <>
+      <p className="bio-p">me gusta crear cosas.</p>
+
       <p className="bio-p">
         soy host de{" "}
         <a href={SLA} target="_blank" rel="noopener noreferrer">
